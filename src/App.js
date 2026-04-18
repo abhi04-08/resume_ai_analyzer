@@ -87,7 +87,16 @@ function App() {
           </p>
 
           <p className="text-green-600 font-bold">
-            {result.match_score > 70 ? "Good Match ✅" : "Needs Improvement ⚠️"}
+            {result.match_score > 70
+              ? "Good Match ✅"
+              : result.match_score > 50
+                ? "Moderate Match ⚠️"
+                : "Low Match ❌"}
+          </p>
+
+          <p>
+            <strong>Suggestions:</strong>{" "}
+            {result.suggestions?.join(", ") || "None"}
           </p>
         </div>
       )}
